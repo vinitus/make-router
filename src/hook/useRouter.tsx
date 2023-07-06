@@ -1,7 +1,11 @@
+export interface HistoryPushStateArgs {
+  path: string;
+  componentName: string;
+}
+
 export default function useRouter() {
-  console.log('useRouter 실행');
-  const push = () => {
-    //
+  const push = ({ path, componentName }: HistoryPushStateArgs) => {
+    history.pushState(null, componentName, path); //
   };
   return { push };
 }
