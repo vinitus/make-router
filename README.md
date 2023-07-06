@@ -113,3 +113,23 @@ export default function Root() {
 [mdn의 popstate 이벤트 공식문서](https://developer.mozilla.org/ko/docs/Web/API/Window/popstate_event)
 
 여기서 PopStateEvent를 생성자로해서 이벤트 객체를 생성하고, dispatchEvent로 할 수 있었다.
+
+```jsx
+export interface HistoryPushStateArgs {
+  path: string;
+  componentName: string;
+}
+
+export default function useRouter() {
+  const push = ({ path, componentName }: HistoryPushStateArgs) => {
+    history.pushState({ pathname: path }, componentName, path);
+
+    const popStateEvnetInstance = new PopStateEvent('popstate');
+
+    dispatchEvent(popStateEvnetInstance);
+  };
+  return { push };
+}
+```
+
+이렇게 해서 해결!
