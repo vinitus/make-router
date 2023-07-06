@@ -5,7 +5,11 @@ export interface HistoryPushStateArgs {
 
 export default function useRouter() {
   const push = ({ path, componentName }: HistoryPushStateArgs) => {
-    history.pushState(null, componentName, path); //
+    history.pushState({ pathname: path }, componentName, path);
+
+    const popStateEvnetInstance = new PopStateEvent('popstate');
+
+    dispatchEvent(popStateEvnetInstance);
   };
   return { push };
 }
