@@ -9,7 +9,6 @@ interface RouteProps {
 export default function Route(props: RouteProps) {
   const { path, component } = props;
   const { pathname } = useContext(RouterContext);
-  console.log(path, component, pathname);
 
-  return <div>Route</div>;
+  if (pathname === path) return component;
 }
