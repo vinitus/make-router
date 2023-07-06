@@ -70,5 +70,9 @@ const { push } = useRouter();
 
 4. `Route` 컴포넌트
    \- `Router` 컴포넌트의 자식 컴포넌트로써, `props`로 `path`와 `component`를 받는다.
-   \- `useRouter` 훅을 호출하고 리턴되는 `push` 함수로 어떤 페이지로 이동시킨다.
+   \- `Router` 컴포넌트에서 만든 `context` 객체를 가져와서 `useContext`로 `pathname`을 받고 사용한다.
+   <br/>
+
+5. `Page` 폴더의 컴포넌트
    \- 버튼이 존재하며, `onClick` 이벤트로 `push` 함수를 호출한다.
+   \- `useRouter` 훅을 호출하고 리턴되는 `push` 함수로 어떤 페이지로 이동시킨다.
