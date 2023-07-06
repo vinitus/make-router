@@ -76,3 +76,40 @@ const { push } = useRouter();
 5. `Page` 폴더의 컴포넌트
    \- 버튼이 존재하며, `onClick` 이벤트로 `push` 함수를 호출한다.
    \- `useRouter` 훅을 호출하고 리턴되는 `push` 함수로 어떤 페이지로 이동시킨다.
+
+## 문제점
+
+1. url은 변하지만 컴포넌트는 변경되지 않는 문제
+
+```jsx
+import useRouter from '../hook/useRouter';
+
+export default function Root() {
+  const { push } = useRouter();
+
+  return (
+    <>
+      <h2>Root</h2>
+      <button
+        type='button'
+        onClick={() => {
+          push({ path: '/about', componentName: 'About' });
+        }}
+      >
+        About
+      </button>
+    </>
+  );
+}
+```
+
+아마도 state가 변경되지 않아서 re-rendering이 발생하지 않는 듯하다.
+라우터에서 conetxt의 상태를 변경해야할까?
+
+근데 popstate를 이미 이벤트 리스너를 등록해놨는데.. 굳이 해야할까? 싶었다.
+
+구글링하다가 mdn 문서로 들어갔다.
+
+[mdn의 popstate 이벤트 공식문서](https://developer.mozilla.org/ko/docs/Web/API/Window/popstate_event)
+
+여기서 PopStateEvent를 생성자로해서 이벤트 객체를 생성하고, dispatchEvent로 할 수 있었다.
