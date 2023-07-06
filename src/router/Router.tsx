@@ -1,12 +1,5 @@
-import React, { createContext, useState, useEffect } from 'react';
-
-interface PathnameState {
-  pathname: string;
-}
-
-const pathnameState: PathnameState = { pathname: '' };
-
-export const RouterContext = createContext(pathnameState);
+import React, { useState, useEffect } from 'react';
+import { RouterContext } from './RouterContext';
 
 export default function Router({ children }: { children: React.ReactNode }) {
   const [pathname, setPathname] = useState(window.location.pathname);
