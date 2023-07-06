@@ -6,7 +6,7 @@ interface PathnameState {
 
 const pathnameState: PathnameState = { pathname: '' };
 
-const RouterContext = createContext(pathnameState);
+export const RouterContext = createContext(pathnameState);
 
 export default function Router({ children }: { children: React.ReactNode }) {
   const [pathname, setPathname] = useState(window.location.pathname);
