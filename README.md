@@ -69,22 +69,22 @@ const { push } = useRouter();
    <br/>
 
 3. `Router` 컴포넌트
-   \- `Router` 컴포넌트는 `Props`가 없다.
-   \- React에서 표현해줄 모든 컴포넌트를 감싸는 컴포넌트이다.
-   \- `Router` 컴포넌트에서는 url의 `path`를 `state`로 관리해야한다.
-   \- 이 상태는 모든 컴포넌트에서 사용할 수 있어야 한다. 때문에, `context API`로 관리
-   \- 모든 리액트 컴포넌트를 감싸는 컴포넌트이니까, `popstate` 이벤트 리스너를 여기서 사용한다.
-   \- 자식 컴포넌트가 있기에, `{children}`으로 자식 컴포넌트를 내려줄 필요가 있다.
+   - `Router` 컴포넌트는 `Props`가 없다.
+   - React에서 표현해줄 모든 컴포넌트를 감싸는 컴포넌트이다.
+   - `Router` 컴포넌트에서는 url의 `path`를 `state`로 관리해야한다.
+   - 이 상태는 모든 컴포넌트에서 사용할 수 있어야 한다. 때문에, `context API`로 관리
+   - 모든 리액트 컴포넌트를 감싸는 컴포넌트이니까, `popstate` 이벤트 리스너를 여기서 사용한다.
+   - 자식 컴포넌트가 있기에, `{children}`으로 자식 컴포넌트를 내려줄 필요가 있다.
    <br/>
 
 4. `Route` 컴포넌트
-   \- `Router` 컴포넌트의 자식 컴포넌트로써, `props`로 `path`와 `component`를 받는다.
-   \- `Router` 컴포넌트에서 만든 `context` 객체를 가져와서 `useContext`로 `pathname`을 받고 사용한다.
+   - `Router` 컴포넌트의 자식 컴포넌트로써, `props`로 `path`와 `component`를 받는다.
+   - `Router` 컴포넌트에서 만든 `context` 객체를 가져와서 `useContext`로 `pathname`을 받고 사용한다.
    <br/>
 
 5. `Page` 폴더의 컴포넌트
-   \- 버튼이 존재하며, `onClick` 이벤트로 `push` 함수를 호출한다.
-   \- `useRouter` 훅을 호출하고 리턴되는 `push` 함수로 어떤 페이지로 이동시킨다.
+   - 버튼이 존재하며, `onClick` 이벤트로 `push` 함수를 호출한다.
+   - `useRouter` 훅을 호출하고 리턴되는 `push` 함수로 어떤 페이지로 이동시킨다.
 
 ## 문제점
 
